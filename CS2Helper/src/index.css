@@ -1,0 +1,240 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BACKGROUND — SkinClub style, animated */
+body {
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #ffffff;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(0, 140, 255, 0.35), transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(120, 0, 255, 0.35), transparent 60%),
+    #0a0f1f;
+
+  background-size: 200% 200%;
+  animation: bgMove 18s ease-in-out infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+}
+
+/* PAGE CONTAINER — fade-in on every route change */
+.page-shell {
+  width: 100%;
+  max-width: 1400px;
+  background: #0d1320;
+  color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.55);
+
+  /* fade-in animation */
+  opacity: 0;
+  transform: translateY(12px);
+  animation: pageFade 0.45s ease-out forwards;
+}
+
+@keyframes pageFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TITLES */
+.page-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 28px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* MAP CARD — FINAL VERSION */
+.map-card {
+  display: flex;
+  flex-direction: column;
+  background: #0d1320;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #1e90ff;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.map-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.6);
+}
+
+.map-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.map-card-image img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-card-logo {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 54px;
+  height: 54px;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.7));
+}
+
+.map-card-title {
+  padding: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  background: #111a2b;
+  border-top: 2px solid rgba(255,255,255,0.05);
+}
+
+/* BUTTON */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1e90ff, #00b4ff);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 18px rgba(30, 144, 255, 0.7);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 26px rgba(30, 144, 255, 0.9);
+  filter: brightness(1.05);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.highlight {
+  color: #1e90ff;
+  font-weight: 800;
+}
+
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #1e90ff;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: 0.18s ease;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+  background: #1e90ff;
+  box-shadow: 0 0 14px rgba(30, 144, 255, 0.7);
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tag-smoke {
+  background: rgba(30, 144, 255, 0.2);
+  border: 1px solid #1e90ff;
+}
+
+.tag-molly {
+  background: rgba(255, 69, 0, 0.2);
+  border: 1px solid #ff4500;
+}
+
+.tag-flash {
+  background: rgba(255, 255, 0, 0.15);
+  border: 1px solid #ffd700;
+}
+
+.tag-site {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.title-search-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 90px;
+}
+
+.search-inline {
+  width: 580px; 
+}
