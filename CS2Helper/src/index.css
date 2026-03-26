@@ -158,3 +158,163 @@ body {
 .grid-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
+.highlight {
+  color: #1e90ff;
+  font-weight: 800;
+}
+
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #1e90ff;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: 0.18s ease;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+  background: #1e90ff;
+  box-shadow: 0 0 14px rgba(30, 144, 255, 0.7);
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tag-smoke {
+  background: rgba(30, 144, 255, 0.2);
+  border: 1px solid #1e90ff;
+}
+
+.tag-molly {
+  background: rgba(255, 69, 0, 0.2);
+  border: 1px solid #ff4500;
+}
+
+.tag-flash {
+  background: rgba(255, 255, 0, 0.15);
+  border: 1px solid #ffd700;
+}
+
+.tag-site {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.title-search-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 90px;
+}
+
+.search-inline {
+  width: 580px; 
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column; /* Pe mobil stau unele sub altele */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .layout-container {
+    flex-direction: row; /* Pe desktop, meniul stă în stânga, cardurile în dreapta */
+    align-items: flex-start;
+  }
+  .lineups-content {
+    flex: 1; /* Cardurile ocupă restul de spațiu */
+  }
+}
+
+/* --- STILIZAREA NOULUI MENIU VERTICAL --- */
+
+.vertical-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Spațiul dintre butoane */
+  width: 100%;
+  max-width: 320px; /* Lățimea meniului lateral */
+  background: #111a2b; /* Fundalul zonei de filtre, opțional */
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.filter-list-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: left;
+}
+
+/* Efectul de hover (când treci cu mouse-ul) */
+.filter-list-item:hover {
+  background: rgba(255, 255, 255, 0.08); /* Un gri foarte subtil / transparent */
+}
+
+/* Starea ACTIVĂ (butonul apăsat) - ca în imaginea 2 */
+.filter-list-item.active {
+  background: #3f3f46; /* Culoarea gri închis din screenshot-ul tău */
+}
+
+/* Iconița rotundă din stânga */
+.filter-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3); /* Un fundal închis pentru iconiță, dacă PNG-ul are transparență */
+  margin-right: 16px;
+  object-fit: contain;
+  padding: 4px; /* Un pic de spațiu în interiorul cercului */
+}
+
+/* Textul categoriei (împinge numărul la dreapta) */
+.filter-label {
+  font-size: 16px;
+  font-weight: 700;
+  flex-grow: 1; /* Acesta este secretul! Ocupă tot spațiul liber din mijloc */
+  letter-spacing: 0.5px;
+}
+
+/* Numărul din partea dreaptă */
+.filter-count {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+}
