@@ -28,7 +28,7 @@ import CtDust2 from "./pages/utility/sides/CtDust2";
 import TDust2 from "./pages/utility/sides/TDust2";
 import CtAnubis from "./pages/utility/sides/CtAnubis";
 import TAnubis from "./pages/utility/sides/TAnubis"; 
-import CtAncient from "./pages/utility/sides/Ctancient";
+import CtAncient from "./pages/utility/sides/CtAncient";
 import TAncient from "./pages/utility/sides/TAncient";
 
 

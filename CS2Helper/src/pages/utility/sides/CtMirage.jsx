@@ -3,12 +3,10 @@ import SearchBar from "../../../components/SearchBar";
 import { highlightText } from "../../../utils/highlightText.jsx";
 import mirageCTLineups from "../../../data/mirage-ct-lineups";
 
-// 1. IMPORTĂM TOATE IMAGINILE
-// (Asigură-te că aceste căi sunt corecte pentru fișierele tale din proiect)
 import tImg from "../../../assets/agents/t.png";
-import smokeImg from "../../../assets/agents/smoke.png"; // Exemplu de rută
-import mollyImg from "../../../assets/agents/molly.png"; // Exemplu de rută
-import flashImg from "../../../assets/agents/flash.png"; // Exemplu de rută
+import smokeImg from "../../../assets/agents/smoke.png"; 
+import mollyImg from "../../../assets/agents/molly.png"; 
+import flashImg from "../../../assets/agents/flash.png";
 
 export default function CTMirage() {
   const [search, setSearch] = useState("");
@@ -23,8 +21,6 @@ export default function CTMirage() {
     };
   }, []);
 
-  // 2. ATAȘĂM VARIABILELE IMPORTATE LA FIECARE CATEGORIE
-  // Atenție: Folosim variabilele direct, fără ghilimele!
   const filterOptions = [
     { id: "all", label: "All", count: counts.all, icon: tImg },
     { id: "smoke", label: "Smokes", count: counts.smoke, icon: smokeImg },
@@ -68,8 +64,7 @@ export default function CTMirage() {
               className={`filter-list-item ${typeFilter === option.id ? "active" : ""}`}
               onClick={() => setTypeFilter(option.id)}
             >
-              {/* 3. APLICĂM IMAGINEA DINAMIC */}
-              {/* Acum React va trage imaginea specifică fiecărui 'option' */}
+            
               <img src={option.icon} alt={option.label} className="filter-icon" />
               
               <span className="filter-label">{option.label}</span>
@@ -80,7 +75,7 @@ export default function CTMirage() {
 
         <div className="lineups-content">
           {filtered.length === 0 && (
-            <p className="page-subtitle">Niciun lineup găsit pentru căutarea ta.</p>
+            <p className="page-subtitle">No lineups found for your search.</p>
           )}
 
           {filtered.map((item) => (

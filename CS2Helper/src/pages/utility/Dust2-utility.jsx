@@ -6,7 +6,7 @@ import tImg from "../../assets/agents/t.png";
 export default function Dust2() {
     return (
     <div>
-      <h1 className="page-title">Dust2 – Utility</h1>
+      <h1 className="page-title">Dust II – Utility</h1>
       <p className="page-subtitle"><strong>Choose a side:</strong></p>
 
       <div className="grid grid-2">
