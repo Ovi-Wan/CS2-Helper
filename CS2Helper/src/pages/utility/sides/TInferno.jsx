@@ -4,9 +4,10 @@ import { highlightText } from "../../../utils/highlightText.jsx";
 import infernoTLineups from "../../../data/inferno-t-lineups";
 
 import tImg from "../../../assets/agents/t.png";
-import smokeImg from "../../../assets/agents/smoke.png";
-import mollyImg from "../../../assets/agents/molly.png"; 
-import flashImg from "../../../assets/agents/flash.png"; 
+import smokeImg from "../../../assets/nades/smoke.png"; 
+import mollyImg from "../../../assets/nades/molly.png"; 
+import flashImg from "../../../assets/nades/flash.png"; 
+import heGrenadeImg from "../../../assets/nades/HeGrenade.png";
 
 export default function TInferno() {
   const [search, setSearch] = useState("");

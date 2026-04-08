@@ -4,9 +4,13 @@ import { highlightText } from "../../../utils/highlightText.jsx";
 import mirageTLineups from "../../../data/mirage-t-lineups";
 
 import tImg from "../../../assets/agents/t.png";
-import smokeImg from "../../../assets/agents/smoke.png"; 
-import mollyImg from "../../../assets/agents/molly.png"; 
-import flashImg from "../../../assets/agents/flash.png"; 
+import smokeImg from "../../../assets/nades/smoke.png"; 
+import mollyImg from "../../../assets/nades/molly.png"; 
+import flashImg from "../../../assets/nades/flash.png"; 
+import heGrenadeImg from "../../../assets/nades/HeGrenade.png";
+
+import "./Utility.css";
+import leftClickImg from "../../../assets/emoji/left-click.png";
 
 export default function TMirage() {
   const [search, setSearch] = useState("");
@@ -18,6 +22,7 @@ export default function TMirage() {
       smoke: mirageTLineups.filter(item => item.type === "smoke").length,
       molly: mirageTLineups.filter(item => item.type === "molly").length,
       flash: mirageTLineups.filter(item => item.type === "flash").length,
+      heGrenade: mirageTLineups.filter(item => item.type === "heGrenade").length,
     };
   }, []);
 
@@ -26,13 +31,15 @@ export default function TMirage() {
     { id: "smoke", label: "Smokes", count: counts.smoke, icon: smokeImg },
     { id: "molly", label: "Molotovs", count: counts.molly, icon: mollyImg },
     { id: "flash", label: "Flashbangs", count: counts.flash, icon: flashImg },
+    { id: "heGrenade", label: "HE Grenades", count: counts.heGrenade, icon: heGrenadeImg },
   ];
 
   const filtered = useMemo(() => {
     return mirageTLineups.filter((item) => {
+      const safeName = item.name || "";
+
       const matchesText =
-        item.name.toLowerCase().includes(search.toLowerCase()) ||
-        item.description.toLowerCase().includes(search.toLowerCase());
+        safeName.toLowerCase().includes(search.toLowerCase());
 
       const matchesType =
         typeFilter === "all" ? true : item.type === typeFilter;
@@ -79,18 +86,46 @@ export default function TMirage() {
           )}
 
           {filtered.map((item) => (
-            <div key={item.id} className="card">
-              <div className="card-title">
-                {highlightText(item.name, search)}
+            <div key={item.id} className="lineup-card">
+              
+              <div className="lineup-card-header">
+                <h1 className="lineup-card-title">
+                  {highlightText(item.name, search)}
+                </h1>
+                <div className="tag-row">
+                  <span className={`tag tag-${item.type}`}>{item.type}</span>
+                  <span className="tag tag-site">{item.site} </span>
+                </div>
               </div>
 
-              <p className="card-text">
-                {highlightText(item.description, search)}
-              </p>
+              <div className="lineup-card-body">
+                 
+                <div className="lineup-video-wrapper">
+                  <iframe
+                    className="lineup-video-player"
+                    src={item.videoUrl}
+                    title={`Tutorial video pentru ${item.name}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
 
-              <div className="tag-row">
-                <span className={`tag tag-${item.type}`}>{item.type}</span>
-                <span className="tag tag-site">{item.site} site</span>
+                <div className="lineup-description-wrapper">
+
+                  {item.action && (
+                    <div className="action-row">
+                      <img src={leftClickImg} alt="Left Click" className="action-icon" />
+                      <span className="action-text">{item.action}</span>
+                    </div>
+                  )}
+
+                  <p className="lineup-description-text">
+                    {item.description 
+                      ? highlightText(item.description, search) 
+                      : "No description for this lineup."}
+                  </p>
+                </div>
+
               </div>
             </div>
           ))}

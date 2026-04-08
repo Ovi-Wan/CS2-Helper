@@ -4,9 +4,10 @@ import { highlightText } from "../../../utils/highlightText.jsx";
 import anubisTLineups from "../../../data/anubis-t-lineups";
 
 import tImg from "../../../assets/agents/t.png";
-import smokeImg from "../../../assets/agents/smoke.png";
-import mollyImg from "../../../assets/agents/molly.png"; 
-import flashImg from "../../../assets/agents/flash.png"; 
+import smokeImg from "../../../assets/nades/smoke.png"; 
+import mollyImg from "../../../assets/nades/molly.png"; 
+import flashImg from "../../../assets/nades/flash.png"; 
+import heGrenadeImg from "../../../assets/nades/HeGrenade.png"; 
 
 export default function TAnubis() {
   const [search, setSearch] = useState("");
